@@ -18,6 +18,7 @@ namespace Vizvezetek.API.Controllers
         }
 
         // GET api/Munkalapok
+        [HttpGet]
         public async Task<ActionResult<IEnumerable<munkalap>>> GetMunkalap()
         {
             return await _context.munkalap.ToListAsync();
