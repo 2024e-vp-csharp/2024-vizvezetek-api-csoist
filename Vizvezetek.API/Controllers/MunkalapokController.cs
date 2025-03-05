@@ -1,5 +1,8 @@
 ﻿using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
+using Microsoft.EntityFrameworkCore;
+using Vizvezetek.API.DTOs;
+using Vizvezetek.API.Models;
 
 namespace Vizvezetek.API.Controllers
 {
@@ -7,5 +10,17 @@ namespace Vizvezetek.API.Controllers
     [ApiController]
     public class MunkalapokController : ControllerBase
     {
+        private readonly vizvezetekContext _context;
+
+        public MunkalapokController(vizvezetekContext context)
+        {
+            _context = context;
+        }
+
+        // GET api/Munkalapok
+        public async Task<ActionResult<IEnumerable<munkalap>>> GetMunkalap()
+        {
+            return await _context.munkalap.ToListAsync();
+        }
     }
 }
