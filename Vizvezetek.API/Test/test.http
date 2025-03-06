@@ -5,6 +5,6 @@ POST {{hostname}}/Munkalapok
 Content-Type: application/json
 
 {
-  "Hely_Id" : 1,
-  "Szerelo_Id" : 1
+  "Helyszin_Id" : 163,
+  "Szerelo_Id" : 5
 }
