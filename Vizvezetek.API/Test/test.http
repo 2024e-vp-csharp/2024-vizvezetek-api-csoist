@@ -1,0 +1,10 @@
+# For more info on HTTP files go to https://aka.ms/vs/httpfile
+@hostname = http://localhost:5000/api
+
+POST {{hostname}}/Munkalapok
+Content-Type: application/json
+
+{
+  "Hely_Id" : 1,
+  "Szerelo_Id" : 1
+}

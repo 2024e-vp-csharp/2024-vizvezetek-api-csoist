@@ -36,5 +36,13 @@ namespace Vizvezetek.API.Controllers
             return munkalapok.ToDTO();
         }
 
+        // POST  api/Munkalapok/Hely_Id?Szerelo_Id
+        [HttpPost]
+        public async Task<ActionResult<IEnumerable<munkalapDTO>>> PostMunkalap(MunkalapKeresDto keresDto)
+        {
+            var munkalapok = await _context.munkalap.Include(x => x.hely).Include(x => x.szerelo).Where(x => x.hely_id == keresDto.Helyszin_Id && x.szerelo_id == keresDto.Szerelo_Id).ToListAsync();
+            return munkalapok.ToDTO();
+        }
+
     }
 }
